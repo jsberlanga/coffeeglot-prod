@@ -1,0 +1,26 @@
+{
+  "name": "coffeeglot-backend",
+  "version": "1.0.0",
+  "description": "Coffeeglot is a website for those who prefer to learn with a coffee on their hands",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/index.js",
+    "deploy": "prisma deploy --env-file variables.env"
+  },
+  "author": "Julio Soto",
+  "license": "ISC",
+  "dependencies": {
+    "babel-preset-env": "^1.7.0",
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.4",
+    "dotenv": "^8.0.0",
+    "graphql": "^14.3.0",
+    "graphql-cli": "^3.0.11",
+    "graphql-yoga": "^1.17.4",
+    "jsonwebtoken": "^8.5.1",
+    "nodemailer": "^6.1.1",
+    "nodemon": "^1.19.0",
+    "prisma": "^1.31.0",
+    "prisma-client-lib": "^1.30.4"
+  }
+}

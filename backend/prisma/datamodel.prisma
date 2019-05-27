@@ -1,0 +1,50 @@
+type User {
+  id: ID! @id @unique
+  email: String! @unique
+  password: String!
+  teachers: [Teacher!]! #relationship to the Teacher
+  votes: [Vote!]!
+  courses: [Course!]!
+  coursesEnrolled: [Enrollment!]!
+}
+
+type Teacher {
+  id: ID! @id @unique
+  createdAt: DateTime! @createdAt
+  name: String!
+  age: Int!
+  image: String!
+  isNative: String!
+  about: String!
+  experience: String!
+  education: String!
+  certifications: String!
+  createdBy: User! #relationship to the User
+  votes: [Vote!]!
+}
+type Vote {
+  id: ID! @id
+  teacher: Teacher!
+  user: User!
+}
+
+type Course {
+  id: ID! @id @unique
+  createdAt: DateTime! @createdAt
+  title: String!
+  details: String!
+  price: Int!
+  language: String!
+  location: String!
+  seats: Int!
+  startDate: DateTime!
+  endDate: DateTime!
+  createdBy: User!
+  usersEnrolled: [Enrollment]!
+}
+
+type Enrollment {
+  id: ID! @id
+  course: Course
+  user: User
+}

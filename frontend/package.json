@@ -1,0 +1,41 @@
+{
+  "name": "coffeeglot-frontend",
+  "version": "1.0.0",
+  "description": "Coffeeglot is a website for those who prefer to learn with a coffee on their hands",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "author": "Julio Soto",
+  "license": "ISC",
+  "dependencies": {
+    "@brainhubeu/react-carousel": "^1.10.17",
+    "@zeit/next-css": "^1.0.1",
+    "apollo-boost": "^0.3.1",
+    "babel-plugin-module-resolver": "^3.2.0",
+    "babel-plugin-styled-components": "^1.10.0",
+    "downshift": "^3.2.10",
+    "graphql": "^14.3.0",
+    "graphql-tag": "^2.10.1",
+    "graphql-tools": "^4.0.4",
+    "lodash.debounce": "^4.0.8",
+    "moment": "^2.24.0",
+    "next": "^8.1.0",
+    "next-with-apollo": "^3.4.0",
+    "nprogress": "^0.2.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-apollo": "^2.5.5",
+    "react-dates": "^20.2.0",
+    "react-day-picker": "^7.3.0",
+    "react-dom": "^16.8.6",
+    "react-icons": "^3.7.0",
+    "react-particles-js": "^2.6.0",
+    "styled-components": "^4.2.0"
+  }
+}

@@ -1,0 +1,123 @@
+scalar DateTime
+
+type Query {
+  users: [User]!
+  getUser(id: ID!): User!
+  courses(filter: String, orderBy: CourseOrderByInput): [Course]!
+  getCourse(id: ID!): Course
+  teachers(orderBy: TeacherOrderByInput): [Teacher]!
+  getTeacher(id: ID!): Teacher!
+  me: User
+}
+
+enum CourseOrderByInput {
+  createdAt_ASC
+  createdAt_DESC
+  title_ASC
+  title_DESC
+  price_ASC
+  price_DESC
+  language_ASC
+  language_DESC
+  location_ASC
+  location_DESC
+  startDate_ASC
+  startDate_DESC
+}
+
+enum TeacherOrderByInput {
+  createdAt_ASC
+  createdAt_DESC
+}
+
+type Mutation {
+  signup(email: String!, password: String!): AuthPayload
+  signin(email: String!, password: String!): AuthPayload
+  signout: SuccessMessage
+  createTeacher(
+    name: String!
+    age: Int!
+    image: String!
+    isNative: String!
+    image: String!
+    about: String!
+    experience: String!
+    education: String!
+    certifications: String!
+  ): Teacher!
+  createCourse(
+    title: String!
+    details: String!
+    price: Int!
+    language: String!
+    location: String!
+    seats: Int!
+    startDate: DateTime!
+    endDate: DateTime!
+  ): Course!
+  deleteCourse(id: ID!): Course
+  vote(teacherId: ID!): Vote
+  enroll(courseId: ID!): Enrollment
+}
+
+type AuthPayload {
+  token: String
+  user: User
+}
+
+type User {
+  id: ID!
+  email: String!
+  password: String!
+  teachers: [Teacher!]!
+  courses: [Course!]!
+  votes: [Vote]
+  coursesEnrolled: [Enrollment!]!
+}
+
+type Teacher {
+  id: ID!
+  createdAt: DateTime!
+  name: String!
+  age: Int!
+  courses: [Course]!
+  isNative: String!
+  image: String!
+  about: String!
+  experience: String!
+  education: String!
+  certifications: String!
+  createdBy: User
+  votes: [Vote!]!
+}
+
+type Course {
+  id: ID!
+  createdAt: DateTime!
+  title: String!
+  details: String!
+  price: Int!
+  language: String!
+  location: String!
+  seats: Int!
+  startDate: String!
+  endDate: String!
+  createdBy: User!
+  usersEnrolled: [Enrollment]
+}
+
+type SuccessMessage {
+  message: String
+}
+
+type Vote {
+  id: ID!
+  teacher: Teacher!
+  user: User!
+}
+
+type Enrollment {
+  id: ID!
+  course: Course
+  user: User
+}
